@@ -1,0 +1,657 @@
+{
+  "initial_level": 1,
+  "initial_experience": 0,
+  "stat_names": [
+    "attack",
+    "defense",
+    "agility",
+    "magic",
+    "spirit",
+    "resistance"
+  ],
+  "levels": [
+    0,
+    24,
+    60,
+    120,
+    220,
+    380
+  ],
+  "variance": {
+    "min": 0.9,
+    "max": 1.1
+  },
+  "rows": {
+    "front": {
+      "name": "Передний",
+      "outgoing": 1,
+      "incoming": 1
+    },
+    "back": {
+      "name": "Задний",
+      "outgoing": 0.6,
+      "incoming": 0.6
+    }
+  },
+  "classes": {
+    "warrior": {
+      "base": {
+        "attack": 17,
+        "defense": 7,
+        "agility": 8,
+        "magic": 2,
+        "spirit": 5,
+        "resistance": 4
+      },
+      "growth": {
+        "attack": 3,
+        "defense": 2,
+        "agility": 1,
+        "magic": 0,
+        "spirit": 1,
+        "resistance": 1
+      },
+      "hp_growth": 12,
+      "spells": [],
+      "charges": {},
+      "row": "front"
+    },
+    "thief": {
+      "base": {
+        "attack": 12,
+        "defense": 4,
+        "agility": 16,
+        "magic": 9,
+        "spirit": 4,
+        "resistance": 4
+      },
+      "growth": {
+        "attack": 2,
+        "defense": 1,
+        "agility": 3,
+        "magic": 2,
+        "spirit": 1,
+        "resistance": 1
+      },
+      "hp_growth": 8,
+      "spells": [
+        "fire",
+        "frost"
+      ],
+      "charges": {
+        "1": 3,
+        "2": 1
+      },
+      "row": "front"
+    },
+    "monk": {
+      "base": {
+        "attack": 20,
+        "defense": 5,
+        "agility": 11,
+        "magic": 2,
+        "spirit": 7,
+        "resistance": 5
+      },
+      "growth": {
+        "attack": 4,
+        "defense": 2,
+        "agility": 2,
+        "magic": 0,
+        "spirit": 2,
+        "resistance": 1
+      },
+      "hp_growth": 11,
+      "spells": [],
+      "charges": {},
+      "row": "front"
+    },
+    "white_mage": {
+      "base": {
+        "attack": 7,
+        "defense": 3,
+        "agility": 7,
+        "magic": 7,
+        "spirit": 16,
+        "resistance": 10
+      },
+      "growth": {
+        "attack": 1,
+        "defense": 1,
+        "agility": 1,
+        "magic": 2,
+        "spirit": 3,
+        "resistance": 2
+      },
+      "hp_growth": 7,
+      "spells": [
+        "cure",
+        "protect",
+        "cura",
+        "revive"
+      ],
+      "charges": {
+        "1": 4,
+        "2": 2
+      },
+      "row": "back"
+    }
+  },
+  "formulas": {
+    "stat": {
+      "inputs": [
+        "base",
+        "growth",
+        "level",
+        "initial_level",
+        "gear"
+      ],
+      "constants": {},
+      "expression": "base + growth * (level - initial_level) + gear"
+    },
+    "max_hp": {
+      "inputs": [
+        "base_hp",
+        "growth",
+        "level",
+        "initial_level"
+      ],
+      "constants": {},
+      "expression": "base_hp + growth * (level - initial_level)"
+    },
+    "physical": {
+      "inputs": [
+        "attack",
+        "defense",
+        "variance",
+        "outgoing",
+        "incoming",
+        "minimum",
+        "attack_scale",
+        "defense_scale"
+      ],
+      "constants": {
+        "minimum": 1,
+        "attack_scale": 1.5,
+        "defense_scale": 0.7
+      },
+      "expression": "max(minimum, floor((attack * attack_scale - defense * defense_scale) * variance * outgoing * incoming))"
+    },
+    "magic": {
+      "inputs": [
+        "power",
+        "magic",
+        "resistance",
+        "variance",
+        "minimum",
+        "magic_scale",
+        "resistance_scale"
+      ],
+      "constants": {
+        "minimum": 1,
+        "magic_scale": 1.2,
+        "resistance_scale": 0.5
+      },
+      "expression": "max(minimum, floor((power + magic * magic_scale - resistance * resistance_scale) * variance))"
+    },
+    "healing": {
+      "inputs": [
+        "power",
+        "spirit",
+        "spirit_scale"
+      ],
+      "constants": {
+        "spirit_scale": 1.1
+      },
+      "expression": "floor(power + spirit * spirit_scale)"
+    },
+    "revive": {
+      "inputs": [
+        "max_hp",
+        "fraction",
+        "minimum"
+      ],
+      "constants": {
+        "minimum": 1
+      },
+      "expression": "max(minimum, floor(max_hp * fraction))"
+    },
+    "escape": {
+      "inputs": [
+        "party_agility",
+        "enemy_agility",
+        "base_chance",
+        "agility_factor",
+        "min_chance",
+        "max_chance"
+      ],
+      "constants": {
+        "base_chance": 0.45,
+        "agility_factor": 0.025,
+        "min_chance": 0.15,
+        "max_chance": 0.95
+      },
+      "expression": "clamp(base_chance + (party_agility - enemy_agility) * agility_factor, min_chance, max_chance)"
+    },
+    "experience": {
+      "inputs": [
+        "total",
+        "survivors"
+      ],
+      "constants": {},
+      "expression": "floor(total / survivors)"
+    }
+  },
+  "spells": {
+    "fire": {
+      "name": "Огонь",
+      "school": "black",
+      "level": "1",
+      "effect": "damage",
+      "target": "enemy",
+      "power": 21,
+      "description": "Чёрная магия: урон одной цели, ряды не влияют."
+    },
+    "frost": {
+      "name": "Лёд",
+      "school": "black",
+      "level": "2",
+      "effect": "damage",
+      "target": "all_enemies",
+      "power": 18,
+      "description": "Чёрная магия: урон всем врагам."
+    },
+    "cure": {
+      "name": "Лечение",
+      "school": "white",
+      "level": "1",
+      "effect": "heal",
+      "target": "ally",
+      "power": 24,
+      "description": "Восстановить HP одного живого спутника."
+    },
+    "protect": {
+      "name": "Покров",
+      "school": "white",
+      "level": "1",
+      "effect": "guard",
+      "target": "ally",
+      "power": 7,
+      "description": "Усилить защиту одного спутника до конца боя."
+    },
+    "cura": {
+      "name": "Общее лечение",
+      "school": "white",
+      "level": "2",
+      "effect": "heal",
+      "target": "all_allies",
+      "power": 15,
+      "description": "Восстановить HP всем живым спутникам."
+    },
+    "revive": {
+      "name": "Возвращение",
+      "school": "white",
+      "level": "2",
+      "effect": "revive",
+      "target": "fallen_ally",
+      "power": 0,
+      "fraction": 0.4,
+      "description": "Вернуть потерянного героя с частью HP."
+    }
+  },
+  "items": {
+    "potion": {
+      "effect": "heal",
+      "target": "ally",
+      "power": 45
+    }
+  },
+  "enemies": {
+    "goblin": {
+      "name": "Гоблин",
+      "appearance": "goblin",
+      "max_hp": 44,
+      "hp": 44,
+      "attack": 12,
+      "defense": 4,
+      "agility": 9,
+      "magic": 3,
+      "spirit": 2,
+      "resistance": 3,
+      "experience": 12,
+      "gold": 18,
+      "row": "front",
+      "spells": [],
+      "charges": {}
+    },
+    "raider": {
+      "name": "Налётчик",
+      "appearance": "raider",
+      "max_hp": 66,
+      "hp": 66,
+      "attack": 16,
+      "defense": 7,
+      "agility": 12,
+      "magic": 2,
+      "spirit": 3,
+      "resistance": 4,
+      "experience": 18,
+      "gold": 25,
+      "row": "front",
+      "spells": [],
+      "charges": {}
+    },
+    "shaman": {
+      "name": "Шаман",
+      "appearance": "shaman",
+      "max_hp": 38,
+      "hp": 38,
+      "attack": 8,
+      "defense": 3,
+      "agility": 10,
+      "magic": 8,
+      "spirit": 4,
+      "resistance": 6,
+      "experience": 16,
+      "gold": 22,
+      "row": "back",
+      "spells": [
+        "fire"
+      ],
+      "charges": {
+        "1": 2
+      }
+    },
+    "garland": {
+      "name": "Гарланд",
+      "appearance": "garland",
+      "max_hp": 800,
+      "hp": 800,
+      "attack": 45,
+      "defense": 26,
+      "agility": 13,
+      "magic": 8,
+      "spirit": 8,
+      "resistance": 14,
+      "experience": 160,
+      "gold": 250,
+      "row": "front",
+      "spells": [],
+      "charges": {},
+      "boss": true
+    }
+  },
+  "encounters": {
+    "enabled": true,
+    "region": [
+      11,
+      -31,
+      13,
+      -23
+    ],
+    "chance": 0.18,
+    "grace_steps": 7,
+    "formations": [
+      [
+        "goblin",
+        "goblin"
+      ],
+      [
+        "goblin",
+        "raider"
+      ],
+      [
+        "goblin",
+        "shaman",
+        "goblin"
+      ]
+    ]
+  },
+  "visual": {
+    "center": [
+      24,
+      0,
+      -54
+    ],
+    "camera_offset": [
+      9,
+      34,
+      0
+    ],
+    "camera_size": 18,
+    "hero_slots": [
+      -2.1,
+      -0.7,
+      0.7,
+      2.1
+    ],
+    "enemy_slots": [
+      -1.7,
+      0,
+      1.7
+    ],
+    "hero_z": {
+      "front": -50.6,
+      "back": -48.6
+    },
+    "enemy_z": {
+      "front": -57.3,
+      "back": -59.1
+    },
+    "actor_scale": 0.8,
+    "fallen_scale": 0.4,
+    "hero_rotation": 180,
+    "enemy_rotation": 0,
+    "action_seconds": 0.38,
+    "enemy_seconds": 0.65,
+    "test_seconds": 0.002,
+    "lunge": 0.35,
+    "label_height": 2.9,
+    "label_size": 25,
+    "ring_size": [
+      0.6,
+      0.035,
+      0.6
+    ],
+    "ring_color": "#e7c46a",
+    "hit_color": "#edb3a0",
+    "hero_color": "#c2e3cf",
+    "camera_target_offset": [
+      -1.6,
+      0,
+      0
+    ]
+  },
+  "ui": {
+    "header": [
+      32,
+      24,
+      548,
+      96
+    ],
+    "overline": [
+      52,
+      48
+    ],
+    "title": [
+      52,
+      90
+    ],
+    "title_size": 31,
+    "queue_box": [
+      610,
+      24,
+      798,
+      96
+    ],
+    "queue_label": [
+      631,
+      49
+    ],
+    "queue_text": [
+      631,
+      79
+    ],
+    "queue_font": 16,
+    "queue_limit": 7,
+    "enemy_origin": [
+      32,
+      158
+    ],
+    "hero_origin": [
+      1182,
+      158
+    ],
+    "card_size": [
+      226,
+      78
+    ],
+    "card_gap": 10,
+    "card_name_offset": [
+      14,
+      25
+    ],
+    "card_hp_offset": [
+      14,
+      49
+    ],
+    "card_row_offset": [
+      14,
+      68
+    ],
+    "bar_offset": [
+      14,
+      55
+    ],
+    "bar_size": [
+      198,
+      4
+    ],
+    "bar_bg": "#4c5959",
+    "hero_bar": "#8fc5a7",
+    "enemy_bar": "#ce9582",
+    "panel": [
+      32,
+      624,
+      1376,
+      244
+    ],
+    "turn_title": [
+      52,
+      651
+    ],
+    "commands_origin": [
+      52,
+      666
+    ],
+    "command_size": [
+      200,
+      40
+    ],
+    "command_gap": 5,
+    "options_origin": [
+      276,
+      666
+    ],
+    "option_size": [
+      400,
+      38
+    ],
+    "option_gap": 5,
+    "target_origin": [
+      964,
+      666
+    ],
+    "target_size": [
+      424,
+      38
+    ],
+    "target_gap": 5,
+    "options_label": [
+      276,
+      651
+    ],
+    "targets_label": [
+      964,
+      651
+    ],
+    "log_rect": [
+      335,
+      529,
+      770,
+      79
+    ],
+    "log_origin": [
+      353,
+      551
+    ],
+    "log_line": 22,
+    "log_limit": 3,
+    "log_font": 15,
+    "result_panel": [
+      400,
+      246,
+      640,
+      353
+    ],
+    "result_title": [
+      438,
+      310
+    ],
+    "result_text": [
+      438,
+      358
+    ],
+    "result_width": 555,
+    "result_line": 30,
+    "result_button": [
+      438,
+      522,
+      564,
+      47
+    ],
+    "hint_pos": [
+      32,
+      890
+    ],
+    "hint": "Мышь / Tab / Enter · E — выбранная команда · Esc — отменить выбор",
+    "empty_pos": [
+      292,
+      700
+    ],
+    "charge_font": 14
+  },
+  "test": {
+    "seed": 247,
+    "round_limit": 120,
+    "formation": [
+      "goblin",
+      "shaman",
+      "goblin"
+    ],
+    "weak_formation": [
+      "goblin"
+    ],
+    "equipment_weapon": "dagger",
+    "equipment_armor": "cloth",
+    "potion": "potion",
+    "spell_caster": "thief",
+    "white_caster": "white_mage",
+    "bridge_approach": [
+      12,
+      -22
+    ],
+    "bridge_entry": [
+      12,
+      -23
+    ],
+    "max_steps": 50,
+    "win_formation": [
+      "goblin",
+      "goblin"
+    ],
+    "injury": 35,
+    "lethal_attack": 200,
+    "lethal_hp": 500
+  }
+}

@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Local tooling / sandboxed user data
+.userdata/
+*.log
+
+# Temporary image inspection crops
+screenshots/*_crop.png

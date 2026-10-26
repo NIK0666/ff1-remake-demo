@@ -1,0 +1,197 @@
+{
+  "currency": {
+    "name": "гил",
+    "short": "G"
+  },
+  "ui": {
+    "gold": "ЗОЛОТО",
+    "bag": "СУМКА",
+    "wallet_title": "КОШЕЛЁК",
+    "buy": "КУПИТЬ",
+    "sell": "ПРОДАТЬ",
+    "price": "ЦЕНА",
+    "owned": "В СУМКЕ",
+    "bag_empty": "Сумка пуста",
+    "not_enough_gold": "Не хватает золота.",
+    "no_stock": "Нет товаров.",
+    "no_sell_items": "Эта лавка не купит ничего из вашей сумки.",
+    "no_lost": "В отряде нет потерянных героев.",
+    "shop_hint": "W/S — выбор    A/D — купить / продать    E — сделка    Esc — выйти",
+    "inn_hint": "E — оплатить ночлег    Esc — выйти",
+    "clinic_hint": "W/S — выбрать героя    E — лечить    Esc — выйти",
+    "close_hint": "Esc — закрыть",
+    "party": "ОТРЯД",
+    "hp": "HP",
+    "buy_mode": "КУПИТЬ",
+    "sell_mode": "ПРОДАТЬ",
+    "service_closed": "Странник покидает лавку."
+  },
+  "items": {
+    "potion": {
+      "name": "Зелье",
+      "type": "item",
+      "description": "Травяной отвар. Восстанавливает здоровье героя.",
+      "buy_price": 25,
+      "sell_price": 12,
+      "battle_use": {"type": "heal", "power": 40, "target": "ally"}
+    },
+    "antidote": {
+      "name": "Противоядие",
+      "type": "item",
+      "description": "Горькая настойка против яда.",
+      "buy_price": 15,
+      "sell_price": 7
+    },
+    "tent": {
+      "name": "Палатка",
+      "type": "item",
+      "description": "Позволяет отдохнуть в дороге.",
+      "buy_price": 50,
+      "sell_price": 25
+    },
+    "torch": {
+      "name": "Факел",
+      "type": "item",
+      "description": "Тёплый свет в тёмных местах.",
+      "buy_price": 8,
+      "sell_price": 4
+    },
+    "chaos_key": {
+      "name": "Ключ Хаоса",
+      "type": "key",
+      "description": "Тяжёлый чёрный ключ с печатью Святилища. Открывает запертую дверь в глубине."
+    },
+    "bronze_sword": {
+      "name": "Бронзовый меч",
+      "type": "weapon",
+      "slot": "weapon",
+      "description": "Надёжный клинок для начинающего воина.",
+      "buy_price": 140,
+      "sell_price": 70,
+      "stats": {"attack": 10, "defense": 0, "agility": -1, "magic": 0}
+    },
+    "iron_dagger": {
+      "name": "Железный кинжал",
+      "type": "weapon",
+      "slot": "weapon",
+      "description": "Быстрый и тихий. По душе вору.",
+      "buy_price": 105,
+      "sell_price": 52,
+      "stats": {"attack": 6, "defense": 0, "agility": 4, "magic": 0}
+    },
+    "oak_staff": {
+      "name": "Дубовый посох",
+      "type": "weapon",
+      "slot": "weapon",
+      "description": "Простой посох с медным навершием.",
+      "buy_price": 95,
+      "sell_price": 47,
+      "stats": {"attack": 3, "defense": 1, "agility": 0, "magic": 7}
+    },
+    "iron_knuckles": {
+      "name": "Железные кастеты",
+      "type": "weapon",
+      "slot": "weapon",
+      "description": "Тяжёлые кастеты для монаха.",
+      "buy_price": 110,
+      "sell_price": 55,
+      "stats": {"attack": 8, "defense": 2, "agility": 1, "magic": 0}
+    },
+    "leather_armor": {
+      "name": "Кожаный доспех",
+      "type": "armor",
+      "slot": "armor",
+      "description": "Лёгкая защита из дублёной кожи.",
+      "buy_price": 100,
+      "sell_price": 50,
+      "stats": {"attack": 0, "defense": 7, "agility": 1, "magic": 0}
+    },
+    "cloth_robe": {
+      "name": "Тканевая роба",
+      "type": "armor",
+      "slot": "armor",
+      "description": "Удобная роба для белого мага.",
+      "buy_price": 85,
+      "sell_price": 42,
+      "stats": {"attack": 0, "defense": 3, "agility": 0, "magic": 6}
+    },
+    "wooden_shield": {
+      "name": "Деревянный щит",
+      "type": "armor",
+      "slot": "armor",
+      "description": "Обитый железом щит из дуба.",
+      "buy_price": 70,
+      "sell_price": 35,
+      "stats": {"attack": 0, "defense": 6, "agility": -2, "magic": 0}
+    },
+    "bronze_cuirass": {
+      "name": "Бронзовая кираса",
+      "type": "armor",
+      "slot": "armor",
+      "description": "Крепкая броня для переднего края.",
+      "buy_price": 180,
+      "sell_price": 90,
+      "stats": {"attack": 0, "defense": 12, "agility": -2, "magic": 0}
+    }
+  },
+  "services": {
+    "inn": {
+      "type": "inn",
+      "title": "ПОСТОЯЛЫЙ ДВОР",
+      "subtitle": "Комната для всего отряда",
+      "description": "Постель, горячий ужин и спокойный сон. Ночлег полностью исцеляет всех четверых героев.",
+      "price": 30,
+      "station": [2.7, -7.4],
+      "prompt": "E — Ночлег",
+      "sign": "НОЧЛЕГ",
+      "accent": "#d7b46b"
+    },
+    "item_shop": {
+      "type": "shop",
+      "shop_type": "item",
+      "title": "ЛАВКА ПРЕДМЕТОВ",
+      "subtitle": "Дорога начинается с запасов",
+      "description": "Зелья, противоядия и всё, что пригодится в пути.",
+      "station": [2.7, -7.4],
+      "prompt": "E — Лавка предметов",
+      "sign": "ТОВАРЫ",
+      "accent": "#9fbf83",
+      "stock": ["potion", "antidote", "tent", "torch"]
+    },
+    "weapon_shop": {
+      "type": "shop",
+      "shop_type": "weapon",
+      "title": "ЛАВКА ОРУЖИЯ",
+      "subtitle": "Сталь, которой доверяют",
+      "description": "Клинки, посохи и кастеты от городского кузнеца.",
+      "station": [2.7, -7.4],
+      "prompt": "E — Лавка оружия",
+      "sign": "ОРУЖИЕ",
+      "accent": "#d18468",
+      "stock": ["bronze_sword", "iron_dagger", "oak_staff", "iron_knuckles"]
+    },
+    "armor_shop": {
+      "type": "shop",
+      "shop_type": "armor",
+      "title": "ЛАВКА БРОНИ",
+      "subtitle": "Защита для каждого пути",
+      "description": "Кожа, ткань и бронза. Здесь помогут подготовиться к дороге.",
+      "station": [2.7, -7.4],
+      "prompt": "E — Лавка брони",
+      "sign": "БРОНЯ",
+      "accent": "#b9a17d",
+      "stock": ["leather_armor", "cloth_robe", "wooden_shield", "bronze_cuirass"]
+    },
+    "clinic": {
+      "type": "clinic",
+      "title": "КЛИНИКА",
+      "subtitle": "Помощь потерянным героям",
+      "description": "Старейшина поднимет на ноги одного потерянного героя.",
+      "price": 80,
+      "station": [2.7, -7.4],
+      "prompt": "E — Клиника",
+      "sign": "КЛИНИКА",
+      "accent": "#8db7a4"
+    }
+  }
+}

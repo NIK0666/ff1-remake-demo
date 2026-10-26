@@ -1,0 +1,188 @@
+{
+  "starting_gold": 300,
+  "starting_inventory": {},
+  "items": {
+    "potion": {
+      "name": "Зелье",
+      "category": "items",
+      "buy": 40,
+      "sell": 20,
+      "description": "Восстанавливает HP живого героя в бою. При использовании расходуется один флакон."
+    },
+    "antidote": {
+      "name": "Противоядие",
+      "category": "items",
+      "buy": 30,
+      "sell": 15,
+      "description": "Настой горьких трав. Запас для дальнейших путешествий."
+    },
+    "tent": {
+      "name": "Палатка",
+      "category": "items",
+      "buy": 90,
+      "sell": 45,
+      "description": "Дорожное снаряжение для всей партии."
+    },
+    "dagger": {
+      "name": "Кинжал",
+      "category": "weapons",
+      "buy": 70,
+      "sell": 35,
+      "description": "Лёгкий стальной клинок. Можно надеть через меню снаряжения (C).",
+      "equipment": {
+        "slot": "weapon",
+        "classes": [
+          "warrior",
+          "thief"
+        ],
+        "stats": {
+          "attack": 6,
+          "agility": 2
+        }
+      }
+    },
+    "longsword": {
+      "name": "Длинный меч",
+      "category": "weapons",
+      "buy": 120,
+      "sell": 60,
+      "description": "Меч корнелийских оружейников. Можно надеть через меню снаряжения (C).",
+      "equipment": {
+        "slot": "weapon",
+        "classes": [
+          "warrior"
+        ],
+        "stats": {
+          "attack": 12
+        }
+      }
+    },
+    "staff": {
+      "name": "Посох",
+      "category": "weapons",
+      "buy": 50,
+      "sell": 25,
+      "description": "Посох из прочного ясеня. Можно надеть через меню снаряжения (C).",
+      "equipment": {
+        "slot": "weapon",
+        "classes": [
+          "monk",
+          "white_mage"
+        ],
+        "stats": {
+          "attack": 3,
+          "magic": 6,
+          "spirit": 4
+        }
+      }
+    },
+    "cloth": {
+      "name": "Тканевый доспех",
+      "category": "armor",
+      "buy": 65,
+      "sell": 32,
+      "description": "Прочная дорожная одежда. Можно надеть через меню снаряжения (C).",
+      "equipment": {
+        "slot": "armor",
+        "classes": [
+          "warrior",
+          "thief",
+          "monk",
+          "white_mage"
+        ],
+        "stats": {
+          "defense": 2
+        }
+      }
+    },
+    "leather": {
+      "name": "Кожаная броня",
+      "category": "armor",
+      "buy": 100,
+      "sell": 50,
+      "description": "Лёгкая броня из выделанной кожи. Можно надеть через меню снаряжения (C).",
+      "equipment": {
+        "slot": "armor",
+        "classes": [
+          "warrior",
+          "thief",
+          "monk"
+        ],
+        "stats": {
+          "defense": 5,
+          "agility": -1
+        }
+      }
+    },
+    "chain": {
+      "name": "Кольчуга",
+      "category": "armor",
+      "buy": 160,
+      "sell": 80,
+      "description": "Кольчужный доспех корнелийской работы. Можно надеть через меню снаряжения (C).",
+      "equipment": {
+        "slot": "armor",
+        "classes": [
+          "warrior"
+        ],
+        "stats": {
+          "defense": 9,
+          "agility": -3
+        }
+      }
+    },
+    "chaos_key": {
+      "name": "Ключ Хаоса",
+      "description": "Ключ из старого сундука. Открывает запертую дверь первого этажа святилища.",
+      "buy": 0,
+      "sell": 0,
+      "kind": "key"
+    }
+  },
+  "services": {
+    "inn": {
+      "kind": "inn",
+      "name": "Постоялый двор",
+      "tagline": "Тёплый кров для воинов Света",
+      "fee": 80,
+      "description": "Ночлег восстанавливает HP и заряды магии всей партии и сохраняет контрольную точку."
+    },
+    "weapons": {
+      "kind": "shop",
+      "name": "Лавка оружия",
+      "tagline": "Сталь корнелийских мастеров",
+      "stock": [
+        "dagger",
+        "longsword",
+        "staff"
+      ]
+    },
+    "armor": {
+      "kind": "shop",
+      "name": "Лавка брони",
+      "tagline": "Защита для долгого пути",
+      "stock": [
+        "cloth",
+        "leather",
+        "chain"
+      ]
+    },
+    "items": {
+      "kind": "shop",
+      "name": "Лавка предметов",
+      "tagline": "Всё необходимое в дорогу",
+      "stock": [
+        "potion",
+        "antidote",
+        "tent"
+      ]
+    },
+    "clinic": {
+      "kind": "clinic",
+      "name": "Клиника",
+      "tagline": "Вернуть спутника в строй",
+      "fee": 25,
+      "description": "Выберите героя с 0 HP. Клиника восстановит только его здоровье; остальные спутники останутся без изменений."
+    }
+  }
+}

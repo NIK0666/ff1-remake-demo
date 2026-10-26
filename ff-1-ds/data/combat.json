@@ -1,0 +1,312 @@
+{
+  "encounter": {
+    "enabled": true,
+    "bridge_chance": 0.22,
+    "cooldown_steps": 6,
+    "rng_seed": 0,
+    "bridge_ids": ["bridge_patrol", "bridge_scouts", "bridge_brutes"]
+  },
+  "row": {
+    "damage_dealt": {"front": 1.0, "back": 0.6},
+    "melee_damage_taken": {"front": 1.0, "back": 0.5},
+    "enemy_melee_target_weight": {"front": 3.0, "back": 1.0}
+  },
+  "variance": {
+    "physical": 3,
+    "magic": 2,
+    "heal": 2,
+    "item": 3
+  },
+  "rules": {
+    "min_damage": 1,
+    "min_heal": 1,
+    "flee_min_chance": 0.1,
+    "flee_max_chance": 0.9
+  },
+  "formulas": {
+    "physical_damage": "(attack - defense * 0.55 + variance) * row_mult",
+    "spell_damage": "(magic * 1.2 + spell_power - defense * 0.35 + variance) * row_mult",
+    "heal": "spell_power + magic * 1.2 + variance",
+    "item_heal": "item_power + variance",
+    "flee_chance": "0.42 + (party_agility - enemy_agility) * 0.025"
+  },
+  "enemy_ai": {
+    "cast_chance": 0.7
+  },
+  "spells": {
+    "cure": {
+      "name": "Лечение",
+      "school": "white",
+      "level": 1,
+      "type": "heal",
+      "target": "ally",
+      "power": 26,
+      "description": "Белая магия. Восстанавливает здоровье одному герою."
+    },
+    "holy_lance": {
+      "name": "Святой луч",
+      "school": "white",
+      "level": 2,
+      "type": "damage",
+      "target": "enemy",
+      "power": 24,
+      "description": "Белая магия. Луч света поражает одного врага."
+    },
+    "shadow_bolt": {
+      "name": "Теневая стрела",
+      "school": "black",
+      "level": 1,
+      "type": "damage",
+      "target": "enemy",
+      "power": 13,
+      "description": "Чёрная магия. Сгусток тьмы поражает одного врага."
+    },
+    "chaos_bolt": {
+      "name": "Разлом Хаоса",
+      "school": "black",
+      "level": 2,
+      "type": "damage",
+      "target": "enemy",
+      "power": 20,
+      "description": "Чёрная магия Святилища. Разлом тьмы поражает одного врага."
+    }
+  },
+  "enemies": {
+    "goblin_raider": {
+      "name": "Гоблин-налётчик",
+      "look": "goblin",
+      "row": "front",
+      "max_hp": 50,
+      "stats": {"attack": 11, "defense": 4, "agility": 9, "magic": 0},
+      "xp": 14,
+      "gold": 16,
+      "spells": [],
+      "spell_slots": {},
+      "palette": {"primary": "#6f8a4e", "accent": "#c7a15d", "dark": "#39452c"}
+    },
+    "goblin_archer": {
+      "name": "Гоблин-лучник",
+      "look": "goblin_archer",
+      "row": "back",
+      "max_hp": 38,
+      "stats": {"attack": 10, "defense": 3, "agility": 13, "magic": 0},
+      "xp": 13,
+      "gold": 14,
+      "spells": [],
+      "spell_slots": {},
+      "palette": {"primary": "#7d9458", "accent": "#d5b66e", "dark": "#3d4a2f"}
+    },
+    "goblin_shaman": {
+      "name": "Гоблин-шаман",
+      "look": "goblin_shaman",
+      "row": "back",
+      "max_hp": 42,
+      "stats": {"attack": 6, "defense": 5, "agility": 7, "magic": 12},
+      "xp": 20,
+      "gold": 24,
+      "spells": ["shadow_bolt"],
+      "spell_slots": {"black": {"1": 2}},
+      "palette": {"primary": "#504466", "accent": "#a684c6", "dark": "#2b2438"}
+    },
+    "goblin_brute": {
+      "name": "Гоблин-громила",
+      "look": "goblin_brute",
+      "row": "front",
+      "max_hp": 66,
+      "stats": {"attack": 14, "defense": 6, "agility": 6, "magic": 0},
+      "xp": 22,
+      "gold": 26,
+      "spells": [],
+      "spell_slots": {},
+      "palette": {"primary": "#567b4b", "accent": "#b98d52", "dark": "#303c2a"}
+    },
+    "skeleton_guard": {
+      "name": "Скелет-страж",
+      "look": "skeleton",
+      "row": "front",
+      "max_hp": 55,
+      "stats": {"attack": 13, "defense": 8, "agility": 8, "magic": 0},
+      "xp": 18,
+      "gold": 20,
+      "spells": [],
+      "spell_slots": {},
+      "palette": {"primary": "#8f8b81", "accent": "#b9a775", "dark": "#3d3941"}
+    },
+    "wraith": {
+      "name": "Призрак",
+      "look": "wraith",
+      "row": "back",
+      "max_hp": 40,
+      "stats": {"attack": 7, "defense": 4, "agility": 13, "magic": 13},
+      "xp": 20,
+      "gold": 22,
+      "spells": ["shadow_bolt"],
+      "spell_slots": {"black": {"1": 2}},
+      "palette": {"primary": "#59466d", "accent": "#b28be0", "dark": "#271f34"}
+    },
+    "cultist": {
+      "name": "Культист Хаоса",
+      "look": "cultist",
+      "row": "back",
+      "max_hp": 46,
+      "stats": {"attack": 8, "defense": 5, "agility": 9, "magic": 14},
+      "xp": 24,
+      "gold": 26,
+      "spells": ["chaos_bolt"],
+      "spell_slots": {"black": {"2": 1}},
+      "palette": {"primary": "#493945", "accent": "#c37d70", "dark": "#241b27"}
+    },
+    "garland": {
+      "name": "Гарланд",
+      "look": "garland",
+      "row": "front",
+      "max_hp": 380,
+      "stats": {"attack": 24, "defense": 14, "agility": 10, "magic": 10},
+      "xp": 160,
+      "gold": 240,
+      "spells": ["chaos_bolt"],
+      "spell_slots": {"black": {"2": 2}},
+      "palette": {"primary": "#4b3b46", "accent": "#b65b58", "dark": "#1f1a22"}
+    }
+  },
+  "encounters": [
+    {
+      "id": "bridge_patrol",
+      "title": "Патруль гоблинов",
+      "weight": 3,
+      "arena": "bridge",
+      "intro": "Гоблины преграждают мост!",
+      "enemies": ["goblin_raider", "goblin_raider", "goblin_archer", "goblin_shaman"]
+    },
+    {
+      "id": "bridge_scouts",
+      "title": "Гоблинские разведчики",
+      "weight": 2,
+      "arena": "bridge",
+      "intro": "Гоблины преграждают мост!",
+      "enemies": ["goblin_raider", "goblin_archer", "goblin_archer", "goblin_shaman"]
+    },
+    {
+      "id": "bridge_brutes",
+      "title": "Громилы на мосту",
+      "weight": 1,
+      "arena": "bridge",
+      "intro": "Гоблины преграждают мост!",
+      "enemies": ["goblin_raider", "goblin_brute", "goblin_shaman"]
+    },
+    {
+      "id": "shrine_skeletons",
+      "title": "Скелеты-стражи",
+      "weight": 3,
+      "arena": "shrine",
+      "intro": "Из темноты поднимаются кости...",
+      "enemies": ["skeleton_guard", "skeleton_guard", "wraith"]
+    },
+    {
+      "id": "shrine_cultists",
+      "title": "Культисты Хаоса",
+      "weight": 2,
+      "arena": "shrine",
+      "intro": "Слуги Хаоса преграждают путь.",
+      "enemies": ["skeleton_guard", "cultist", "cultist", "wraith"]
+    },
+    {
+      "id": "shrine_guardians",
+      "title": "Стражи святилища",
+      "weight": 2,
+      "arena": "shrine",
+      "intro": "Стражи святилища пробуждаются.",
+      "enemies": ["skeleton_guard", "skeleton_guard", "cultist"]
+    }
+  ],
+  "bosses": {
+    "garland": {
+      "id": "garland",
+      "title": "Гарланд",
+      "arena": "shrine",
+      "boss": true,
+      "intro": "Гарланд: «Значит, король всё-таки послал вас...»",
+      "enemies": ["garland"]
+    }
+  },
+  "arena": {
+    "title": "СЕВЕРНЫЙ МОСТ",
+    "deck_width": 8.0,
+    "deck_length": 24.0,
+    "rail_height": 1.15,
+    "party_rows": {"front": 1.35, "back": 3.15},
+    "enemy_rows": {"front": -1.35, "back": -3.15},
+    "slot_spacing": 1.9,
+    "camera": {
+      "distance": 15.0,
+      "pitch_degrees": 57.0,
+      "yaw_degrees": 0.0,
+      "fov": 39.0,
+      "target_height": 1.0
+    },
+    "environment": {
+      "sky_top_color": "#566b86",
+      "sky_horizon_color": "#c7a98b",
+      "ground_horizon_color": "#7d8068",
+      "ground_bottom_color": "#34434b",
+      "ambient_color": "#b8c9d5",
+      "ambient_energy": 0.48,
+      "sun_color": "#ffd3a0",
+      "sun_energy": 1.25,
+      "sun_rotation": [-48.0, -132.0, 0.0],
+      "fog_enabled": true,
+      "fog_color": "#8896a0",
+      "fog_density": 0.012
+    }
+  },
+  "shrine_arena": {
+    "title": "СВЯТИЛИЩЕ ХАОСА",
+    "room_width": 16.0,
+    "room_depth": 16.0,
+    "wall_height": 6.0,
+    "party_rows": {"front": 1.35, "back": 3.15},
+    "enemy_rows": {"front": -1.35, "back": -3.15},
+    "slot_spacing": 1.9,
+    "camera": {
+      "distance": 15.0,
+      "pitch_degrees": 57.0,
+      "yaw_degrees": 0.0,
+      "fov": 39.0,
+      "target_height": 1.0
+    },
+    "environment": {
+      "background": "color",
+      "background_color": "#100b16",
+      "ambient_color": "#8b76a6",
+      "ambient_energy": 0.42,
+      "sun_color": "#b08bd8",
+      "sun_energy": 0.7,
+      "sun_rotation": [-52.0, -126.0, 0.0],
+      "fog_enabled": true,
+      "fog_color": "#1d1426",
+      "fog_density": 0.022
+    }
+  },
+  "ui": {
+    "battle_title": "СЕВЕРНЫЙ МОСТ",
+    "commands": ["Атака", "Заклинание", "Предмет", "Бегство"],
+    "front": "ПЕРЕДНИЙ",
+    "back": "ЗАДНИЙ",
+    "victory": "ПОБЕДА",
+    "defeat": "ПАРТИЯ ПОГИБЛА",
+    "defeat_hint": "Последний ночлег вернёт отряд в строй.",
+    "flee_success": "Отряд отступает.",
+    "flee_fail": "Отступление не удалось.",
+    "no_spells": "Нет доступных заклинаний.",
+    "no_items": "В сумке нет боевых предметов.",
+    "empty_charges": "Заряды этого уровня исчерпаны.",
+    "round": "Раунд",
+    "continue": "E — продолжить",
+    "xp": "ОПЫТ",
+    "gold": "ЗОЛОТО"
+  },
+  "checkpoint": {
+    "fallback_toast": "Отряд очнулся у ворот замка.",
+    "inn_toast": "Отряд очнулся на постоялом дворе."
+  }
+}

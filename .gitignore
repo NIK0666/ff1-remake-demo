@@ -1,0 +1,19 @@
+# Godot import/editor cache (regenerated on first open)
+.godot/
+android/
+.tools/
+.validation/
+.userdata/
+
+# Screenshots and run logs are documentation, not sources
+ff-1-sol/docs/*.png
+ff-1-ds/screenshots/*.png
+*.log
+
+# OS / editor junk
+Thumbs.db
+desktop.ini
+.DS_Store
+*.tmp
+*.bak
+*~

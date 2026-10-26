@@ -1,0 +1,149 @@
+{
+  "world": {
+    "step": 2.0,
+    "party_radius": 0.36,
+    "probe_height": 0.65,
+    "probe_height_size": 1.4,
+    "solid_layer": 1,
+    "interact_layer": 2,
+    "max_physics_hits": 8
+  },
+  "controls": {
+    "move_up": [87, 4194320],
+    "move_down": [83, 4194322],
+    "move_left": [65, 4194319],
+    "move_right": [68, 4194321],
+    "interact": [69, 4194309, 32],
+    "equipment": [73],
+    "ui_cancel": [4194305]
+  },
+  "party": {
+    "step_duration": 0.185,
+    "follow_stagger": 0.025,
+    "turn_smoothing": 14.0,
+    "walk_cycle_speed": 11.0,
+    "leader_ring_color": "#f5d78c",
+    "starting_gold": 300,
+    "starting_inventory": {},
+    "starting_experience": 0,
+    "members": [
+      {
+        "id": "brandt",
+        "name": "Брандт",
+        "class_id": "warrior",
+        "class_name": "Воин",
+        "color": "#c94f43",
+        "accent": "#f1c27d",
+        "dark": "#5e2527",
+        "look": "warrior",
+        "max_hp": 120,
+        "row": "front",
+        "base_stats": {"attack": 16, "defense": 12, "agility": 8, "magic": 0},
+        "spells": [],
+        "spell_slots": {}
+      },
+      {
+        "id": "shade",
+        "name": "Тень",
+        "class_id": "thief",
+        "class_name": "Вор",
+        "color": "#4f7b63",
+        "accent": "#d7b267",
+        "dark": "#263a32",
+        "look": "thief",
+        "max_hp": 90,
+        "row": "back",
+        "base_stats": {"attack": 12, "defense": 8, "agility": 15, "magic": 0},
+        "spells": [],
+        "spell_slots": {}
+      },
+      {
+        "id": "kai",
+        "name": "Кай",
+        "class_id": "monk",
+        "class_name": "Монах",
+        "color": "#c98b52",
+        "accent": "#f2dfbd",
+        "dark": "#5d3f2d",
+        "look": "monk",
+        "max_hp": 110,
+        "row": "front",
+        "base_stats": {"attack": 15, "defense": 10, "agility": 11, "magic": 0},
+        "spells": [],
+        "spell_slots": {}
+      },
+      {
+        "id": "lira",
+        "name": "Лира",
+        "class_id": "white_mage",
+        "class_name": "Белый маг",
+        "color": "#e6e2d5",
+        "accent": "#7e9fce",
+        "dark": "#53657c",
+        "look": "white_mage",
+        "max_hp": 80,
+        "row": "back",
+        "base_stats": {"attack": 6, "defense": 6, "agility": 9, "magic": 16},
+        "spells": ["cure", "holy_lance"],
+        "spell_slots": {"white": {"1": 3, "2": 1}}
+      }
+    ]
+  },
+  "camera": {
+    "distance": 24.0,
+    "pitch_degrees": 44.0,
+    "yaw_degrees": 22.0,
+    "fov": 37.0,
+    "smoothing": 6.5,
+    "target_height": 1.35,
+    "lead": 0.8,
+    "far": 160.0
+  },
+  "interaction": {
+    "range": 4.3,
+    "prompt_smoothing": 18.0
+  },
+  "transition": {
+    "fade_out_duration": 0.28,
+    "black_hold": 0.08,
+    "fade_in_duration": 0.42
+  },
+  "dialogue": {
+    "chars_per_second": 60.0,
+    "close_delay": 0.12
+  },
+  "ui": {
+    "title_hold": 1.8,
+    "title_fade": 0.5,
+    "controls_hint_seconds": 12.0,
+    "toast_duration": 3.6,
+    "party_label": "ОТРЯД",
+    "leader_label": "ЛИДЕР",
+    "controls_hint": "WASD / стрелки  —  движение      E  —  действие      I  —  снаряжение",
+    "objective_title": "ПУТЬ ГЕРОЕВ",
+    "objective_bridge": "Дойдите до дальнего конца северного моста",
+    "objective_return": "Вернитесь в замок и войдите в тронный зал",
+    "objective_king": "Поговорите с королём",
+    "objective_done": "Гарланд укрылся в Святилище Хаоса за северным мостом.",
+    "objective_rescued": "Сара спасена. Вернитесь к королю.",
+    "objective_complete": "Сара спасена. Королевство в безопасности.",
+    "toast_bridge": "Северный мост пройден. Возвращайтесь в замок.",
+    "toast_throne": "Тронный зал. Король ждёт вас.",
+    "toast_king": "Король рассказал о Саре и Гарланде.",
+    "toast_rescued": "Принцесса Сара спасена.",
+    "toast_king_rescued": "Король благодарит героев.",
+    "ending_caption_1": "Король отдал приказ: северный мост должен быть завершён.",
+    "ending_caption_2": "Королевские рабочие ставят последний пролёт.",
+    "ending_caption_3": "Мост готов. Путь на север открыт.",
+    "ending_title": "ДЕМО ЗАВЕРШЕНО",
+    "ending_subtitle": "Спасибо за игру.",
+    "ending_hint": "E — выйти",
+    "toast_location": "Новое место",
+    "house_label": "ДОМ",
+    "throne_label": "ЗАМОК",
+    "exit_hint": "Выйти"
+  },
+  "audio": {
+    "enabled": false
+  }
+}

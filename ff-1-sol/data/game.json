@@ -1,0 +1,627 @@
+{
+  "n": {
+    "zero": 0,
+    "one": 1,
+    "two": 2,
+    "half": 0.5,
+    "negative_one": -1
+  },
+  "heroes": [
+    {
+      "id": "warrior",
+      "appearance": "warrior",
+      "class": "Воин",
+      "name": "Рейн",
+      "numeral": "I",
+      "color": "#d68c64",
+      "max_hp": 120,
+      "hp": 72
+    },
+    {
+      "id": "thief",
+      "appearance": "thief",
+      "class": "Вор",
+      "name": "Лис",
+      "numeral": "II",
+      "color": "#77b9a0",
+      "max_hp": 90,
+      "hp": 44
+    },
+    {
+      "id": "monk",
+      "appearance": "monk",
+      "class": "Монах",
+      "name": "Ян",
+      "numeral": "III",
+      "color": "#d5ae65",
+      "max_hp": 110,
+      "hp": 63
+    },
+    {
+      "id": "white_mage",
+      "appearance": "mage",
+      "class": "Белый маг",
+      "name": "Альба",
+      "numeral": "IV",
+      "color": "#d6dfe3",
+      "max_hp": 75,
+      "hp": 0
+    }
+  ],
+  "movement": {
+    "cell_size": 2,
+    "step_seconds": 0.19,
+    "turn_speed": 18,
+    "bob_height": 0.08,
+    "bob_speed": 18,
+    "limb_swing": 0.26,
+    "interact_distance": 1,
+    "fade_seconds": 0.19
+  },
+  "camera": {
+    "offset": [
+      0,
+      34,
+      24
+    ],
+    "target_offset": [
+      0,
+      0,
+      0
+    ],
+    "size": 31,
+    "interior_size": 29,
+    "min_size": 25,
+    "max_size": 51,
+    "zoom_step": 3,
+    "follow_speed": 9,
+    "near": 0.1,
+    "far": 250
+  },
+  "environment": {
+    "sun_rotation": [
+      -54,
+      -32,
+      0
+    ],
+    "sun_energy": 0.68,
+    "shadow_opacity": 0.48,
+    "ambient_energy": 0.28,
+    "ambient_color": "#cbd7dd",
+    "background": "#acbfc0",
+    "tonemap_exposure": 1,
+    "sun_color": "#fff3df"
+  },
+  "test": {
+    "step_seconds": 0.002,
+    "fade_seconds": 0.002,
+    "wait_seconds": 0.8,
+    "capture_wait": 0.8,
+    "party_count": 4,
+    "blocked_wall": [
+      18,
+      0
+    ],
+    "blocked_water": [
+      10,
+      -27
+    ],
+    "bridge_goal": [
+      13,
+      -32
+    ],
+    "castle_door": [
+      0,
+      -7
+    ],
+    "guard_approach": [
+      4,
+      -6
+    ],
+    "resident_approach": [
+      -4,
+      2
+    ],
+    "king_approach": [
+      0,
+      -6
+    ],
+    "house_count": 6,
+    "water_approach": [
+      11,
+      -27
+    ],
+    "bridge_view": [
+      12,
+      -27
+    ],
+    "square_view": [
+      0,
+      10
+    ],
+    "camera_tolerance": 0.5,
+    "position_tolerance": 0.005,
+    "input_frames": 8,
+    "max_frames": 10000,
+    "services": {
+      "potion": "potion",
+      "weapon": "dagger",
+      "armor": "cloth",
+      "expensive": "longsword",
+      "lost_heroes": [
+        "warrior",
+        "monk"
+      ],
+      "inn_house": "west_north",
+      "item_house": "east_middle",
+      "weapon_house": "east_north",
+      "armor_house": "west_middle",
+      "clinic_house": "west_south",
+      "living_house": "east_south",
+      "boundary_weapon": "staff"
+    }
+  },
+  "ui": {
+    "width": 1440,
+    "height": 900,
+    "margin": 32,
+    "title_y": 78,
+    "overline_y": 34,
+    "subtitle_y": 107,
+    "title_size": 42,
+    "body_size": 16,
+    "small_size": 12,
+    "dialog_size": 23,
+    "dialog_line_height": 32,
+    "ink": "#f1ead9",
+    "muted": "#b6c4c4",
+    "gold": "#d7b77c",
+    "panel": "#172f3be8",
+    "line": "#c5b08170",
+    "shadow": "#0a19247a",
+    "title_panel": [
+      24,
+      16,
+      455,
+      110
+    ],
+    "quest_panel": [
+      32,
+      145,
+      460,
+      61
+    ],
+    "quest_padding": [
+      20,
+      24
+    ],
+    "quest_label_y": 164,
+    "quest_text_y": 188,
+    "map_rect": [
+      1212,
+      102,
+      196,
+      170
+    ],
+    "map_inner": [
+      1223,
+      132,
+      174,
+      128
+    ],
+    "map_title": [
+      1227,
+      123
+    ],
+    "map_scale": 2.4,
+    "map_origin": [
+      1308,
+      216
+    ],
+    "map_bg": "#1e3840e8",
+    "compass_center": [
+      1310,
+      52
+    ],
+    "compass_radius": 24,
+    "compass_y": 30,
+    "compass_size": 16,
+    "bottom_y": 778,
+    "card_width": 168,
+    "card_height": 92,
+    "card_gap": 8,
+    "card_padding": 14,
+    "portrait_size": 40,
+    "portrait_top": 16,
+    "portrait_text_x": 57,
+    "card_name_y": 32,
+    "card_class_y": 54,
+    "card_font": 19,
+    "controls_rect": [
+      1046,
+      778,
+      362,
+      92
+    ],
+    "control_line_x": 1064,
+    "control_line_y": 805,
+    "control_line_gap": 24,
+    "control_size": 15,
+    "footer_pos": [
+      34,
+      887
+    ],
+    "footer_size": 11,
+    "dialog_rect": [
+      332,
+      605,
+      776,
+      151
+    ],
+    "dialog_name": [
+      361,
+      639
+    ],
+    "dialog_text": [
+      361,
+      675
+    ],
+    "dialog_footer": [
+      876,
+      737
+    ],
+    "prompt_size": 16,
+    "prompt_offset": [
+      -76,
+      -48
+    ],
+    "prompt_box": [
+      0,
+      0,
+      152,
+      33
+    ],
+    "prompt_text": [
+      13,
+      23
+    ],
+    "pause_rect": [
+      451,
+      248,
+      538,
+      378
+    ],
+    "pause_title": [
+      501,
+      306
+    ],
+    "pause_body": [
+      501,
+      351
+    ],
+    "pause_gap": 30,
+    "pause_size": 22,
+    "large_map_rect": [
+      340,
+      170,
+      760,
+      530
+    ],
+    "large_map_origin": [
+      720,
+      510
+    ],
+    "large_map_scale": 7,
+    "large_map_title": [
+      378,
+      214
+    ],
+    "large_map_footer": [
+      378,
+      670
+    ],
+    "completion_rect": [
+      460,
+      236,
+      520,
+      62
+    ],
+    "completion_pos": [
+      480,
+      274
+    ],
+    "fade_color": "#142832",
+    "border_width": 1,
+    "thick_border": 2,
+    "portrait_outline": 2,
+    "divider_y": 47,
+    "quest_icon_radius": 4,
+    "map_hero_radius": 3,
+    "map_follower_radius": 1.5,
+    "map_npc_radius": 2,
+    "font_outline": 4,
+    "map_water_rect": [
+      -19,
+      -31,
+      38,
+      9
+    ],
+    "map_town_rect": [
+      -18,
+      -20,
+      36,
+      40
+    ],
+    "map_castle_rect": [
+      -5,
+      -18,
+      11,
+      11
+    ],
+    "map_bridge_rect": [
+      11,
+      -32,
+      3,
+      10
+    ],
+    "map_house_rect": [
+      -2,
+      -2,
+      5,
+      5
+    ],
+    "map_font_size": 13,
+    "pause_lines": [
+      "Путешествие приостановлено",
+      "WASD / стрелки — движение",
+      "E / Enter — говорить",
+      "M / Tab — карта",
+      "I — инвентарь",
+      "C — снаряжение и ряды",
+      "Колесо мыши — масштаб",
+      "F11 — полный экран",
+      "Esc — продолжить"
+    ],
+    "card_hp_y": 75,
+    "health_color": "#9ed4b0",
+    "lost_color": "#e39b8b",
+    "economy_rect": [
+      32,
+      218,
+      460,
+      90
+    ],
+    "economy_gold_pos": [
+      52,
+      244
+    ],
+    "economy_bag_pos": [
+      52,
+      270
+    ],
+    "economy_hint_pos": [
+      52,
+      293
+    ],
+    "economy_summary_length": 45,
+    "control_third_y": 853,
+    "service_prompt_rect": [
+      475,
+      698,
+      490,
+      44
+    ],
+    "service_prompt_pos": [
+      497,
+      727
+    ],
+    "service": {
+      "panel": [
+        280,
+        210,
+        880,
+        504
+      ],
+      "overline": [
+        308,
+        242
+      ],
+      "title": [
+        308,
+        278
+      ],
+      "wallet": [
+        894,
+        322
+      ],
+      "close": [
+        1032,
+        234,
+        100,
+        36
+      ],
+      "tab_buy": [
+        308,
+        296,
+        132,
+        38
+      ],
+      "tab_sell": [
+        450,
+        296,
+        132,
+        38
+      ],
+      "list_origin": [
+        308,
+        354
+      ],
+      "row_size": [
+        460,
+        46
+      ],
+      "row_gap": 9,
+      "max_rows": 4,
+      "detail_rect": [
+        793,
+        354,
+        339,
+        209
+      ],
+      "detail_title": [
+        813,
+        386
+      ],
+      "detail_text": [
+        813,
+        419
+      ],
+      "detail_width": 296,
+      "detail_line_height": 26,
+      "detail_font_size": 18,
+      "message_rect": [
+        308,
+        578,
+        824,
+        47
+      ],
+      "message_pos": [
+        320,
+        598
+      ],
+      "message_width": 795,
+      "message_font_size": 15,
+      "message_line_height": 20,
+      "action": [
+        793,
+        643,
+        339,
+        44
+      ],
+      "footer": [
+        308,
+        672
+      ],
+      "title_size": 31,
+      "row_font_size": 17,
+      "button_font_size": 17,
+      "wallet_font_size": 20,
+      "bg": "#17313ff7",
+      "row_bg": "#213d4b",
+      "hover": "#345562",
+      "selected": "#5b5945",
+      "line": "#bfab7666",
+      "good": "#a8d8b6",
+      "bad": "#f0a79b",
+      "empty_pos": [
+        329,
+        393
+      ],
+      "inventory_title": "Инвентарь партии",
+      "help": "↑↓ Выбор · ←→ Купить / Продать · E Подтвердить · Esc Закрыть",
+      "help_short": "E Подтвердить · Esc Закрыть",
+      "border": 1,
+      "corner": 3,
+      "button_padding": 12,
+      "empty_message": "Здесь пока ничего нет.",
+      "page_prev": [
+        600,
+        296,
+        36,
+        38
+      ],
+      "page_next": [
+        726,
+        296,
+        36,
+        38
+      ],
+      "page_pos": [
+        650,
+        322
+      ]
+    },
+    "equipment": {
+      "hero_buttons": [
+        [
+          600,
+          296,
+          126,
+          38
+        ],
+        [
+          734,
+          296,
+          126,
+          38
+        ],
+        [
+          868,
+          296,
+          126,
+          38
+        ],
+        [
+          1002,
+          296,
+          130,
+          38
+        ]
+      ],
+      "row_button": [
+        813,
+        540,
+        296,
+        30
+      ],
+      "wallet": [
+        800,
+        278
+      ],
+      "footer": [
+        308,
+        672
+      ],
+      "slot_names": {
+        "weapon": "Оружие",
+        "armor": "Броня"
+      },
+      "detail_rect": [
+        793,
+        354,
+        339,
+        224
+      ]
+    }
+  },
+  "map_labels": [
+    {
+      "cell": [
+        -3,
+        -12
+      ],
+      "text": "Замок"
+    },
+    {
+      "cell": [
+        15,
+        -27
+      ],
+      "text": "Мост"
+    },
+    {
+      "cell": [
+        -3,
+        6
+      ],
+      "text": "Площадь"
+    },
+    {
+      "cell": [
+        -5,
+        -21
+      ],
+      "text": "Северные ворота"
+    }
+  ]
+}

@@ -1,0 +1,664 @@
+{
+  "start_location": "town",
+  "start_spawn": "castle_gate",
+  "locations": {
+    "town": {
+      "builder": "town",
+      "title": "КОРНЕЛИЯ",
+      "subtitle": "Город у северного моста",
+      "walk_bounds": { "min": [-17, -37], "max": [16, 16] },
+      "environment": {
+        "background": "sky",
+        "sky_top_color": "#466e9e",
+        "sky_horizon_color": "#f3d09a",
+        "ground_horizon_color": "#d6ba90",
+        "ground_bottom_color": "#5f6158",
+        "sun_color": "#ffe0b1",
+        "sun_energy": 1.28,
+        "sun_rotation": [-40.0, -132.0, 0.0],
+        "ambient_color": "#adc4d8",
+        "ambient_energy": 0.58,
+        "fog_enabled": true,
+        "fog_color": "#d2c2a6",
+        "fog_density": 0.0026,
+        "glow": 0.3,
+        "exposure": 1.0
+      },
+      "terrain": {
+        "grass_size": [200.0, 220.0],
+        "grass_center": [0.0, -20.0],
+        "plaza": { "center": [2.0, 2.0], "size": [36.0, 28.0] },
+        "north_road": { "center": [0.0, -22.0], "size": [10.0, 26.0] },
+        "house_path_width": 4.0,
+        "house_path_length": 7.0,
+        "castle_forecourt": { "center": [-24.0, 25.5], "size": [18.0, 11.0] },
+        "castle_path": { "center": [-11.0, 22.3], "size": [10.0, 4.6] },
+        "quay": {
+          "south_z": -37.0,
+          "north_z": -69.4,
+          "height": 1.5,
+          "thickness": 1.0
+        }
+      },
+      "walls": {
+        "min": [-34.0, -34.0],
+        "max": [34.0, 34.0],
+        "height": 5.4,
+        "thickness": 1.8,
+        "battlement_height": 0.85,
+        "battlement_width": 1.15,
+        "tower_radius": 2.7,
+        "tower_height": 9.2,
+        "tower_roof_height": 3.8
+      },
+      "north_gate": {
+        "z": -34.0,
+        "opening_width": 8.0,
+        "tower_x": 7.0,
+        "tower_radius": 3.0,
+        "tower_height": 11.5,
+        "roof_height": 4.4,
+        "arch_height": 7.0,
+        "arch_depth": 2.4
+      },
+      "castle": {
+        "min": [-33.2, -7.0],
+        "max": [-15.0, 20.0],
+        "wall_height": 8.2,
+        "gate": {
+          "position": [-15.0, 6.0],
+          "width": 5.2,
+          "height": 7.0,
+          "prompt": "E — Войти в замок",
+          "target": "throne_room",
+          "spawn": "from_town"
+        },
+        "south_gate": {
+          "position": [-24.0, 20.05],
+          "width": 6.0,
+          "height": 7.5,
+          "tower_x": [-30.0, -18.0],
+          "tower_z": 20.15,
+          "tower_radius": 2.25,
+          "tower_height": 14.5,
+          "tower_roof_height": 5.8,
+          "prompt": "E — Войти в замок",
+          "target": "throne_room",
+          "spawn": "from_town"
+        },
+        "tower_z": [1.2],
+        "tower_radius": 2.65,
+        "tower_height": 15.5,
+        "tower_roof_height": 6.2,
+        "keep": {
+          "center": [-26.0, 6.0],
+          "size": [13.0, 12.0],
+          "height": 20.5,
+          "roof_height": 5.5
+        },
+        "approach_center": [-12.8, 6.0],
+        "approach_size": [3.2, 11.0]
+      },
+      "houses": [
+        {
+          "id": "baker",
+          "name": "Постоялый двор",
+          "service": "inn",
+          "center": [20.0, -22.0],
+          "size": [10.0, 8.0],
+          "height": 4.8,
+          "wall_color": "#ead8b9",
+          "timber_color": "#5b3d2b",
+          "roof_color": "#a34e3e",
+          "accent_color": "#6c4d33",
+          "chimney": true,
+          "door": {
+            "position": [20.0, -18.05],
+            "facing": [0.0, 1.0],
+            "prompt": "E — Войти в постоялый двор",
+            "return_spawn": "baker_return"
+          },
+          "interior": {
+            "floor_color": "#8a6547",
+            "wall_color": "#d8c09b",
+            "accent_color": "#a04e3c",
+            "rug_color": "#7c3330",
+            "theme": "hearth"
+          }
+        },
+        {
+          "id": "herbalist",
+          "name": "Лавка предметов",
+          "service": "item_shop",
+          "center": [26.0, -2.0],
+          "size": [8.0, 9.0],
+          "height": 4.5,
+          "wall_color": "#d9d4b7",
+          "timber_color": "#4d4932",
+          "roof_color": "#637a4f",
+          "accent_color": "#7c945f",
+          "chimney": true,
+          "door": {
+            "position": [22.05, -2.0],
+            "facing": [-1.0, 0.0],
+            "prompt": "E — Войти в лавку предметов",
+            "return_spawn": "herbalist_return"
+          },
+          "interior": {
+            "floor_color": "#79664a",
+            "wall_color": "#cfc9a8",
+            "accent_color": "#657c4e",
+            "rug_color": "#4f5f41",
+            "theme": "herbs"
+          }
+        },
+        {
+          "id": "fisher",
+          "name": "Дом рыбака",
+          "center": [24.0, 20.0],
+          "size": [10.0, 8.0],
+          "height": 4.6,
+          "wall_color": "#cfd4cd",
+          "timber_color": "#46605f",
+          "roof_color": "#4f6a78",
+          "accent_color": "#739393",
+          "chimney": false,
+          "door": {
+            "position": [19.05, 20.0],
+            "facing": [-1.0, 0.0],
+            "prompt": "E — Войти в дом рыбака",
+            "return_spawn": "fisher_return"
+          },
+          "interior": {
+            "floor_color": "#6f5a43",
+            "wall_color": "#c4cbc3",
+            "accent_color": "#4e6c76",
+            "rug_color": "#36505c",
+            "theme": "sea"
+          }
+        },
+        {
+          "id": "elder",
+          "name": "Клиника",
+          "service": "clinic",
+          "center": [6.0, 26.0],
+          "size": [10.0, 8.0],
+          "height": 5.2,
+          "wall_color": "#e3d0ad",
+          "timber_color": "#633f2d",
+          "roof_color": "#9b563e",
+          "accent_color": "#82623f",
+          "chimney": true,
+          "door": {
+            "position": [6.0, 22.05],
+            "facing": [0.0, -1.0],
+            "prompt": "E — Войти в клинику",
+            "return_spawn": "elder_return"
+          },
+          "interior": {
+            "floor_color": "#7d5d43",
+            "wall_color": "#d6c09a",
+            "accent_color": "#8c6743",
+            "rug_color": "#693633",
+            "theme": "elder"
+          }
+        },
+        {
+          "id": "weaver",
+          "name": "Лавка брони",
+          "service": "armor_shop",
+          "center": [-12.0, -22.0],
+          "size": [10.0, 8.0],
+          "height": 4.7,
+          "wall_color": "#d9c6a0",
+          "timber_color": "#5b4131",
+          "roof_color": "#7b6544",
+          "accent_color": "#9c6d4c",
+          "chimney": true,
+          "door": {
+            "position": [-12.0, -18.05],
+            "facing": [0.0, 1.0],
+            "prompt": "E — Войти в лавку брони",
+            "return_spawn": "weaver_return"
+          },
+          "interior": {
+            "floor_color": "#806349",
+            "wall_color": "#d3b98f",
+            "accent_color": "#9c684a",
+            "rug_color": "#83533c",
+            "theme": "loom"
+          }
+        },
+        {
+          "id": "smith",
+          "name": "Лавка оружия",
+          "service": "weapon_shop",
+          "center": [-10.0, 28.0],
+          "size": [8.0, 7.0],
+          "height": 4.9,
+          "wall_color": "#c3b6a4",
+          "timber_color": "#413632",
+          "roof_color": "#5c5652",
+          "accent_color": "#84503a",
+          "chimney": true,
+          "door": {
+            "position": [-10.0, 24.55],
+            "facing": [0.0, -1.0],
+            "prompt": "E — Войти в лавку оружия",
+            "return_spawn": "smith_return"
+          },
+          "interior": {
+            "floor_color": "#665447",
+            "wall_color": "#b9aa95",
+            "accent_color": "#7d4c38",
+            "rug_color": "#5f3c32",
+            "theme": "forge"
+          }
+        }
+      ],
+      "fountain": {
+        "position": [8.0, 0.5],
+        "radius": 2.8,
+        "height": 1.05
+      },
+      "props": {
+        "trees": [
+          [14.0, -12.0, 1.0],
+          [-5.0, -12.0, 0.9],
+          [17.0, 8.0, 1.1],
+          [-8.0, 14.0, 0.95],
+          [29.0, -13.0, 1.05],
+          [30.0, 30.0, 1.15],
+          [-30.0, -27.0, 1.0],
+          [-30.0, 28.0, 0.9],
+          [30.0, -29.0, 0.85],
+          [30.0, 8.0, 1.05]
+        ],
+        "lamps": [
+          [-4.5, -8.0],
+          [4.5, -8.0],
+          [-4.5, 1.0],
+          [13.5, -5.5],
+          [-3.5, 11.5],
+          [4.0, 12.0],
+          [-12.5, 1.0]
+        ],
+        "benches": [
+          [3.6, 3.8, -0.35],
+          [-4.6, 7.4, 0.2]
+        ],
+        "planters": [
+          [-6.8, -6.5],
+          [10.6, -7.8],
+          [-14.5, 13.0],
+          [11.5, 14.0]
+        ],
+        "barrels": [
+          [25.8, -9.3],
+          [-16.8, 23.8],
+          [17.0, 24.5]
+        ]
+      },
+      "spawns": {
+        "castle_gate": {
+          "leader": [-12, 12],
+          "facing": [0, -1],
+          "formation": [[-12, 13], [-12, 14], [-12, 15]]
+        },
+        "baker_return": {
+          "leader": [10, -8],
+          "facing": [0, -1],
+          "formation": [[10, -7], [10, -6], [10, -5]]
+        },
+        "herbalist_return": {
+          "leader": [10, -1],
+          "facing": [1, 0],
+          "formation": [[9, -1], [8, -1], [7, -1]]
+        },
+        "fisher_return": {
+          "leader": [9, 10],
+          "facing": [1, 0],
+          "formation": [[8, 10], [7, 10], [6, 10]]
+        },
+        "elder_return": {
+          "leader": [3, 10],
+          "facing": [0, 1],
+          "formation": [[3, 9], [3, 8], [3, 7]]
+        },
+        "weaver_return": {
+          "leader": [-6, -8],
+          "facing": [0, -1],
+          "formation": [[-6, -7], [-6, -6], [-6, -5]]
+        },
+        "smith_return": {
+          "leader": [-5, 11],
+          "facing": [0, 1],
+          "formation": [[-5, 10], [-5, 9], [-5, 8]]
+        },
+        "shrine_return": {
+          "leader": [2, -36],
+          "facing": [-1, 0],
+          "formation": [[1, -36], [0, -36], [-1, -36]]
+        }
+      },
+      "shrine_entrance": {
+        "position": [7.4, -72.5],
+        "prompt": "E — Святилище Хаоса",
+        "target": "chaos_shrine_1",
+        "spawn": "entry"
+      },
+      "npcs": [
+        {
+          "id": "guard",
+          "name": "Стражник",
+          "position": [-6.5, 10.2],
+          "facing": [0.0, 1.0],
+          "look": "guard",
+          "dialogue": "guard",
+          "accent": "#79a6cf"
+        },
+        {
+          "id": "resident",
+          "name": "Житель",
+          "position": [12.0, 3.0],
+          "facing": [-1.0, 0.0],
+          "look": "resident",
+          "dialogue": "resident",
+          "accent": "#9fbf83"
+        }
+      ],
+      "bridge": {
+        "center_x": 0.0,
+        "start_z": -34.0,
+        "end_z": -70.0,
+        "width": 8.0,
+        "deck_thickness": 0.9,
+        "rail_height": 1.2,
+        "lantern_z": [-40.0, -49.0, -58.0, -66.0],
+        "far_landing": {
+          "center": [0.0, -73.0],
+          "size": [16.0, 10.0]
+        },
+        "far_boundary_z": -77.4,
+        "arch_z": -74.0
+      },
+      "river": {
+        "z_min": -69.4,
+        "z_max": -37.0,
+        "width": 180.0,
+        "water_y": -1.35,
+        "shallow_color": "#3f6f78",
+        "deep_color": "#173847",
+        "foam_color": "#cfe0d4"
+      },
+      "zones": [
+        {
+          "id": "bridge_end",
+          "cell": [0, -34],
+          "flag": "reached_bridge_end"
+        }
+      ]
+    },
+    "throne_room": {
+      "builder": "throne_room",
+      "title": "ЗАМОК КОРНЕЛИИ",
+      "subtitle": "Тронный зал",
+      "walk_bounds": { "min": [-7, -9], "max": [7, 9] },
+      "camera": {
+        "distance": 26.0,
+        "pitch_degrees": 55.0,
+        "yaw_degrees": 5.0,
+        "fov": 39.0,
+        "lead": 1.0
+      },
+      "environment": {
+        "background": "color",
+        "background_color": "#171321",
+        "ambient_color": "#c1a17a",
+        "ambient_energy": 0.56,
+        "fog_enabled": false,
+        "fog_color": "#1b1722",
+        "fog_density": 0.0,
+        "glow": 0.4,
+        "exposure": 1.12
+      },
+      "room": {
+        "min": [-15.0, -18.0],
+        "max": [15.0, 18.0],
+        "height": 11.0,
+        "floor_color": "#554c45",
+        "wall_color": "#7a6b5a",
+        "trim_color": "#c5a05d"
+      },
+      "carpet": {
+        "width": 5.4,
+        "start_z": 17.0,
+        "end_z": -14.8,
+        "color": "#741f2b",
+        "border_color": "#c89d55"
+      },
+      "columns": {
+        "x": [-8.2, 8.2],
+        "z": [-10.0, -2.0, 6.0, 14.0],
+        "radius": 0.85,
+        "height": 8.4
+      },
+      "dais": {
+        "center": [0.0, -14.8],
+        "size": [11.0, 6.0],
+        "height": 0.6
+      },
+      "throne": {
+        "position": [0.0, -16.2]
+      },
+      "spawns": {
+        "from_town": {
+          "leader": [0, 5],
+          "facing": [0, -1],
+          "formation": [[0, 6], [0, 7], [0, 8]]
+        }
+      },
+      "exit": {
+        "position": [0.0, 17.82],
+        "prompt": "E — Выйти из замка",
+        "target": "town",
+        "spawn": "castle_gate"
+      },
+      "npcs": [
+        {
+          "id": "king",
+          "name": "Король",
+          "position": [0.0, -11.2],
+          "facing": [0.0, 1.0],
+          "look": "king",
+          "dialogue": "king",
+          "accent": "#e0b75c"
+        }
+      ],
+      "zones": []
+    },
+    "chaos_shrine_1": {
+      "builder": "chaos_shrine",
+      "floor": 1,
+      "title": "СВЯТИЛИЩЕ ХАОСА",
+      "subtitle": "Первый этаж",
+      "walk_bounds": { "min": [-6, -7], "max": [6, 7] },
+      "camera": {
+        "distance": 23.0,
+        "pitch_degrees": 55.0,
+        "yaw_degrees": 4.0,
+        "fov": 39.0,
+        "lead": 0.8
+      },
+      "environment": {
+        "background": "color",
+        "background_color": "#17131f",
+        "ambient_color": "#b2a1c8",
+        "ambient_energy": 0.62,
+        "sun_color": "#b8a6df",
+        "sun_energy": 0.85,
+        "sun_rotation": [-58.0, -146.0, 0.0],
+        "fog_enabled": true,
+        "fog_color": "#2d2438",
+        "fog_density": 0.014,
+        "glow": 0.42,
+        "exposure": 1.08
+      },
+      "room": {
+        "min": [-13.0, -15.0],
+        "max": [13.0, 15.0],
+        "height": 6.8,
+        "floor_color": "#5b5662",
+        "wall_color": "#6c6475",
+        "trim_color": "#b99a60",
+        "accent_color": "#8e5bd6"
+      },
+      "spawns": {
+        "entry": {
+          "leader": [0, 3],
+          "facing": [0, -1],
+          "formation": [[0, 4], [0, 5], [0, 6]]
+        },
+        "from_floor2": {
+          "leader": [0, -6],
+          "facing": [0, 1],
+          "formation": [[0, -5], [0, -4], [0, -3]]
+        }
+      },
+      "exit": {
+        "position": [0.0, 13.2],
+        "prompt": "E — Выйти из святилища",
+        "target": "town",
+        "spawn": "shrine_return"
+      },
+      "chest": {
+        "id": "shrine_chest",
+        "position": [-9.2, 1.0],
+        "prompt": "E — Сундук",
+        "item": "chaos_key",
+        "flag": "shrine_chest_opened"
+      },
+      "locked_door": {
+        "id": "shrine_door",
+        "position": [0.0, -11.5],
+        "width": 4.0,
+        "prompt": "E — Запертая дверь",
+        "key": "chaos_key",
+        "flag": "shrine_door_opened"
+      },
+      "stairs_up": {
+        "position": [0.0, -13.2],
+        "prompt": "E — Подняться на второй этаж",
+        "target": "chaos_shrine_2",
+        "spawn": "from_floor1"
+      },
+      "encounter": {
+        "chance": 0.05,
+        "ids": ["shrine_skeletons", "shrine_cultists", "shrine_guardians"]
+      }
+    },
+    "chaos_shrine_2": {
+      "builder": "chaos_shrine",
+      "floor": 2,
+      "title": "СВЯТИЛИЩЕ ХАОСА",
+      "subtitle": "Второй этаж",
+      "walk_bounds": { "min": [-5, -6], "max": [5, 6] },
+      "camera": {
+        "distance": 22.0,
+        "pitch_degrees": 55.0,
+        "yaw_degrees": 4.0,
+        "fov": 39.0,
+        "lead": 0.8
+      },
+      "environment": {
+        "background": "color",
+        "background_color": "#15101c",
+        "ambient_color": "#b89fc8",
+        "ambient_energy": 0.6,
+        "sun_color": "#c3a4d8",
+        "sun_energy": 0.8,
+        "sun_rotation": [-58.0, -142.0, 0.0],
+        "fog_enabled": true,
+        "fog_color": "#2c1f35",
+        "fog_density": 0.017,
+        "glow": 0.5,
+        "exposure": 1.05
+      },
+      "room": {
+        "min": [-12.0, -13.0],
+        "max": [12.0, 13.0],
+        "height": 7.2,
+        "floor_color": "#554e5b",
+        "wall_color": "#665a6c",
+        "trim_color": "#b99a60",
+        "accent_color": "#a64e6d"
+      },
+      "spawns": {
+        "from_floor1": {
+          "leader": [0, 4],
+          "facing": [0, -1],
+          "formation": [[0, 5], [0, 6], [0, 7]]
+        }
+      },
+      "exit": {
+        "position": [0.0, 12.0],
+        "prompt": "E — Спуститься на первый этаж",
+        "target": "chaos_shrine_1",
+        "spawn": "from_floor2"
+      },
+      "altar": {
+        "position": [0.0, -11.9]
+      },
+      "boss": {
+        "id": "garland",
+        "position": [0.0, -8.6],
+        "prompt": "E — Гарланд",
+        "encounter": "garland"
+      },
+      "sarah": {
+        "position": [0.0, -9.0]
+      },
+      "encounter": {
+        "chance": 0.04,
+        "ids": ["shrine_skeletons", "shrine_cultists", "shrine_guardians"]
+      }
+    },
+    "house": {
+      "builder": "house",
+      "walk_bounds": { "min": [-4, -5], "max": [4, 6] },
+      "camera": {
+        "distance": 23.0,
+        "pitch_degrees": 52.0,
+        "yaw_degrees": 8.0,
+        "fov": 40.0
+      },
+      "environment": {
+        "background": "color",
+        "background_color": "#1b1513",
+        "ambient_color": "#ccb083",
+        "ambient_energy": 0.46,
+        "fog_enabled": false,
+        "fog_color": "#241a15",
+        "fog_density": 0.0,
+        "glow": 0.34,
+        "exposure": 1.1
+      },
+      "room": {
+        "min": [-8.0, -10.0],
+        "max": [8.0, 12.0],
+        "height": 5.4
+      },
+      "spawns": {
+        "entry": {
+          "leader": [0, 1],
+          "facing": [0, -1],
+          "formation": [[0, 2], [0, 3], [0, 4]]
+        }
+      },
+      "exit": {
+        "local": [0.0, 11.72],
+        "prompt": "E — Выйти в город"
+      }
+    }
+  }
+}
